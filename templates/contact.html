@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section contact-section">
+    <h1 class="section-title" style="justify-content: center;" data-aos="fade-down"><span>03.</span>Get In Touch</h1>
+    <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        Although I'm focused on finding new opportunities, my inbox is always open. Whether you have a question or just
+        want to say hi, I'll try my best to get back to you!
+    </p>
+
+    <div class="form-box" data-aos="fade-up">
+        <form method="POST" action="">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" class="form-control" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+            </div>
+            <div style="text-align: center;">
+                <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"
+                        style="margin-left: 5px;"></i></button>
+            </div>
+        </form>
+    </div>
+
+    <div style="margin-top: 3rem; color: var(--text-secondary); font-family: monospace;">
+        <p><i class="fas fa-envelope" style="color: var(--accent); margin-right: 10px;"></i> abasith8074@gmail.com</p>
+        <p><i class="fas fa-phone" style="color: var(--accent); margin-right: 10px;"></i> +91-9965086710</p>
+    </div>
+</section>
+{% endblock %}

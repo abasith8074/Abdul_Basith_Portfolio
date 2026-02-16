@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h1 class="section-title"><span>#</span>Admin Dashboard</h1>
+    </div>
+
+    <div class="form-box">
+        <h3 style="margin-bottom: 2rem; color: var(--accent);">Inbox ({{ messages|length }})</h3>
+        {% if messages %}
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; color: var(--text-secondary);">
+                <thead>
+                    <tr style="border-bottom: 1px solid var(--bg-primary); text-align: left;">
+                        <th style="padding: 1rem; color: var(--white);">Date</th>
+                        <th style="padding: 1rem; color: var(--white);">Name</th>
+                        <th style="padding: 1rem; color: var(--white);">Email</th>
+                        <th style="padding: 1rem; color: var(--white);">Subject</th>
+                        <th style="padding: 1rem; color: var(--white);">Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for msg in messages %}
+                    <tr style="border-bottom: 1px solid var(--bg-primary);">
+                        <td style="padding: 1rem;">{{ msg.date_posted.strftime('%Y-%m-%d') }}</td>
+                        <td style="padding: 1rem;">{{ msg.name }}</td>
+                        <td style="padding: 1rem;">{{ msg.email }}</td>
+                        <td style="padding: 1rem;">{{ msg.subject }}</td>
+                        <td style="padding: 1rem;">{{ msg.message }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <p>No messages yet.</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

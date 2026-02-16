@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section">
+    <h1 class="section-title" data-aos="fade-down"><span>/</span>Projects</h1>
+    <p style="color: var(--text-secondary); margin-bottom: 3rem; max-width: 600px;">
+        A collection of things I've built, ranging from web applications to machine learning models.
+    </p>
+
+    <div class="projects-grid">
+        {% for project in projects %}
+        <div class="project-card" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+            <div class="card-header">
+                <div class="folder-icon">
+                    <i class="far fa-folder"></i>
+                </div>
+                <div class="external-links">
+                    <a href="{{ project.github_link }}" target="_blank"><i class="fab fa-github"></i></a>
+                    {% if project.demo_link and project.demo_link != '#' %}
+                    <a href="{{ project.demo_link }}" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div>
+                <h3 class="project-title">{{ project.title }}</h3>
+                <div class="project-desc">
+                    {{ project.description }}
+                </div>
+            </div>
+
+            <ul class="project-tech">
+                {% for tech in project.technologies.split(',') %}
+                <li>{{ tech.strip() }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
